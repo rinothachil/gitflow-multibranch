@@ -23,14 +23,5 @@ pipeline {
             echo 'BASIC WHEN - Main Branch!'
          }
       }
-             // Execute when branch = 'develop'
-      stage("BASIC WHEN - Branch") {
-         when {
-            branch 'develop'
-	 }
-         steps {
-            echo 'BASIC WHEN - Develop Branch!'
-         }
-      }
    }
 }
