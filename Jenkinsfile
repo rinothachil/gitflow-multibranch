@@ -13,17 +13,7 @@ pipeline {
             echo 'This step will never be run'
          }
       }
-      
-      // Execute when branch = 'main'
-      stage("BASIC WHEN - Branch") {
-         when {
-            branch 'main'
-	 }
-         steps {
-            echo 'BASIC WHEN - Main Branch!'
-         }
-      }
-             // Execute when branch = 'develop'
+      // Execute when branch = 'develop'
       stage("BASIC WHEN - Branch") {
          when {
             branch 'develop'
