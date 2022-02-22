@@ -24,5 +24,24 @@ pipeline {
             echo 'BASIC WHEN - Develop Branch!'
          }
       }
+	// Execute when branch = 'develop'
+      stage("Deploy") {
+         steps {
+	    sleep(10)
+            echo 'Deploy'
+         }
+      }
+      stage("Move To QA") {
+         steps {
+	    sleep(10)
+            echo 'Moved To QA'
+         }
+      }
+      stage("Move To UAT") {
+         steps {
+	    sleep(10)
+            echo 'Moved To UAT'
+         }
+      }
    }
 }
