@@ -10,6 +10,7 @@ pipeline {
             expression { false }  //skip this stage
          }
          steps {
+	    sleep(45)
             echo 'This step will never be run'
          }
       }
@@ -19,6 +20,7 @@ pipeline {
             branch 'develop'
 	 }
          steps {
+	    sleep(45)
             echo 'BASIC WHEN - Develop Branch!'
          }
       }
