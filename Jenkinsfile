@@ -25,5 +25,18 @@ pipeline {
             echo 'BASIC WHEN - Main Branch!'
          }
       }
+	// Execute when branch = 'feature'
+      stage("Build") {
+         steps {
+	    sleep(10)
+            echo 'Build'
+         }
+      }
+      stage("Move To PROD") {
+         steps {
+	    sleep(10)
+            echo 'Deployed To PROD'
+         }
+      }
    }
 }
