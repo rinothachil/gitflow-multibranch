@@ -10,19 +10,38 @@ pipeline {
             expression { false }  //skip this stage
          }
          steps {
-	    sleep(60)
+	    sleep(90)
             echo 'This step will never be run'
          }
       }
       
-      // Execute when branch = 'main'
+      // Execute when branch = 'feature'
       stage("BASIC WHEN - Branch") {
          when {
-            branch 'main'
+            branch 'feature/new_card_development'
 	 }
          steps {
-	    sleep(60)
-            echo 'BASIC WHEN - Main Branch!'
+	    sleep(90)
+            echo 'BASIC WHEN - Feature Branch!'
+         }
+      }
+	// Execute when branch = 'feature'
+      stage("Deploy") {
+         steps {
+	    sleep(10)
+            echo 'Deploy'
+         }
+      }
+      stage("Move To QA") {
+         steps {
+	    sleep(10)
+            echo 'Moved To QA'
+         }
+      }
+      stage("Move To UAT") {
+         steps {
+	    sleep(10)
+            echo 'Moved To UAT'
          }
       }
    }
