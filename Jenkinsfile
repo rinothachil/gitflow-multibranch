@@ -3,45 +3,33 @@ pipeline {
    agent any
     
    stages {
-   
-      // skip a stage while creating the pipeline
-      stage("A stage to be skipped") {
-         when {
-            expression { false }  //skip this stage
-         }
-         steps {
-	    sleep(90)
-            echo 'This step will never be run'
-         }
-      }
-      
       // Execute when branch = 'feature'
       stage("BASIC WHEN - Branch") {
          when {
             branch 'feature/new_card_development'
 	 }
          steps {
-	    sleep(90)
+	    sleep(5)
             echo 'BASIC WHEN - Feature Branch!'
          }
       }
 	// Execute when branch = 'feature'
-      stage("Deploy") {
+      stage("Unit Test") {
          steps {
-	    sleep(10)
-            echo 'Deploy'
+	    sleep(5)
+            echo 'Unit Test Completed'
          }
       }
-      stage("Move To QA") {
+      stage("Isolation Test") {
          steps {
-	    sleep(10)
-            echo 'Moved To QA'
+	    sleep(5)
+            echo 'Isolation Test Completed'
          }
       }
-      stage("Move To UAT") {
+      stage("Sonar Check") {
          steps {
-	    sleep(10)
-            echo 'Moved To UAT'
+	    sleep(5)
+            echo 'Sonar Check Completed'
          }
       }
    }
