@@ -9,7 +9,7 @@ pipeline {
             branch 'feature/paralell-pipeline'
 	 }
          steps {
-	    sleep(2)
+	    sleep(5)
             echo 'BASIC WHEN - Feature Branch!'
          }
       }
