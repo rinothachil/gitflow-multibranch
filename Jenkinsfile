@@ -9,7 +9,7 @@ pipeline {
             branch 'feature/new_card_development'
 	 }
          steps {
-	    sleep(2)
+	    sleep(4)
             echo 'BASIC WHEN - Feature Branch!'
          }
       }
