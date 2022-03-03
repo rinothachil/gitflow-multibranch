@@ -50,7 +50,7 @@ pipeline {
             echo 'Sonar Check Completed'
          }
       }
-     stage("Merge Source") {
+     stage("Merge To Develop") {
          steps {
 	    sleep(2)
             echo 'Merge the Source with Develop'
