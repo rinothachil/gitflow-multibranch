@@ -3,39 +3,57 @@ pipeline {
    agent any
     
    stages {
-   
-      // skip a stage while creating the pipeline
-      stage("A stage to be skipped") {
-         when {
-            expression { false }  //skip this stage
-         }
-         steps {
-	    sleep(60)
-            echo 'This step will never be run'
-         }
-      }
-      
-      // Execute when branch = 'main'
+      // Execute when branch = 'feature'
       stage("BASIC WHEN - Branch") {
          when {
-            branch 'main'
+            branch 'feature/paralell-pipeline'
 	 }
          steps {
-	    sleep(60)
-            echo 'BASIC WHEN - Main Branch!'
+	    sleep(2)
+            echo 'BASIC WHEN - Feature Branch!'
          }
       }
 	// Execute when branch = 'feature'
-      stage("Build") {
+      stage("Checkout Code") {
          steps {
-	    sleep(10)
-            echo 'Build'
+	    sleep(2)
+            echo 'Code Checkout Completed'
          }
       }
-      stage("Move To PROD") {
+      stage("Unit Test") {
          steps {
-	    sleep(10)
-            echo 'Deployed To PROD'
+	    sleep(5)
+            echo 'Unit Test Completed'
+         }
+      }
+      stage("ArchUnit Test") {
+         steps {
+	    sleep(5)
+            echo 'ArchUnit Test Completed'
+         }
+      }
+      stage("Isolation Test") {
+         steps {
+	    sleep(5)
+            echo 'Isolation Test Completed'
+         }
+      }
+      stage("OWASP Check") {
+         steps {
+	    sleep(5)
+            echo 'OWASP Check Completed'
+         }
+      }
+      stage("Sonar Check") {
+         steps {
+	    sleep(5)
+            echo 'Sonar Check Completed'
+         }
+      }
+     stage("Merge Source") {
+         steps {
+	    sleep(2)
+            echo 'Merge the Source with Develop'
          }
       }
    }
